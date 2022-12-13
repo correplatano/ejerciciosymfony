@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+            <link href="{{ asset('css/reset.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('css/estilos.css') }}" type="text/css" rel="stylesheet" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+            <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <header>
+            <div id="cabera_nivel_0">
+                <div class="centrado">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">{% trans %}Contactenos ahora{% endtrans %}</a>
+                            </li>
+                            <li>
+                                |
+                            </li>
+                            <li>
+                                <a href="#">Faq</a>
+                            </li>
+                            <li>
+                                |
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div>
+                        <i class="fa-solid fa-truck-fast"></i>
+                        Envios gratuito en pedidos superiores a 35€
+                    </div>
+                    <nav>
+                        <ul>
+                            <li> 
+                            {% if (not(is_granted('ROLE_USER'))) %}                          
+                                <a href="{{ path("app_login") }}">Login</a>
+                            {% else %}
+                                <a href="{{ path("app_logout") }}">Logout</a>
+                            {% endif %}
+                            </li>
+                            <li>
+                                |
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-user"></i>&nbsp;&nbsp;<a href="#">Crear Cuenta</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div id="cabera_nivel_1">
+                <div class="centrado">
+                    <figure id="logo">
+                        <img src="{{ asset('logo.png')}}" alt="logo"/>
+                    </figure>
+                    <form>
+                        <select class="cmb">
+                            <option>Categorias</option>
+                        </select>
+                        <input class="txt" type="search" name="buscar" placeholder="Introduce la busqueda"/>
+                        <input class="btn_naranja" type="submit" name="enviar" value="Buscar"/>
+                    </form>
+                    <img src="{{ asset('contacto.png')}}" alt="Info contacto"/>
+                    <div>
+                       <div>
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <div>
+                                <span>0</span>
+                            </div>
+                       </div>
+                       <div>
+                            <p>Mi Cesta</p>
+                            <p>0,00 €</p>
+                       </div>
+                    </div>
+                </div>
+            </div>
+            <div id="cabera_nivel_2">
+                <div class="centrado">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">Inicio</a>
+                            </li>
+                            <li>
+                                <a href="#">Opcion 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Opcion 2</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+        <div class="centrado">
+            {% block cuerpo %}
+            <section id="portada">
+                {% for producto in productos %}
+                    <article>
+                        <header>
+                            <figure>
+                                <img src="{{asset(producto.fotoportada)}}" />
+                            </figure>
+                            <h1><a href="#">{{producto.titulo}}</a></h1>
+                        </header>
+                        <p>{{producto.precio}}</p>
+                    </article>
+                {% endfor %}
+            </section>
+            {% endblock %}
+        </div>
+        {% block pie %}
+        <footer>
+            <div id="pie_nivel_0">
+                <div>
+                    <img src="#"/>
+                    <p> Registrate en el boletin</p>
+                    <p> Recibe novedades, cupones de descuento y las mejores ofertas</p>
+                </div>
+                <form>
+                    <input type="search" name="newsletter" placeholder="Su direccion de correo"/>
+                    <input type="submit" name="enviar" value="Suscribirse"/>
+                </form>
+            </div>
+            <div id="pie_nivel_1">
+                <div>
+                    <img src="#" alt="logo"/>
+                    <p> Info contacto</p>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <img src="" alt="Ico Facbeook"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="" alt="Ico Twitter"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <nav>
+                    <header>
+                        <h1>Sobre nosotros</h1>
+                    </header>
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Opcion 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Opcion 2</a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <header>
+                        <h1>Informacion</h1>
+                    </header>
+                    <ul>
+                        <li>
+                            <a href="#">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Opcion 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Opcion 2</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div>
+                    <p>Datos de contacto</p>
+                </div>
+            </div>
+            <div id="pie_nivel_2">
+                <p>
+                    &copy; <a href="#"/>Tiendecita</a> tu tienda especial
+                </p>
+                <p>
+                    Medios de pago
+                </p>
+            </div>
+        </footer>
+        {% endblock %}
+
+    </body>
+</html>

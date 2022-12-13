@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block cuerpo %}
+    <div class="centrado_flex">
+        <article id="producto">
+            <div>
+                <img src="{{ asset(producto.fotos) }}" alt="{{ producto.titulo }}"/>
+            </div>
+            <div>
+                <header>
+                    <h1>{{ producto.titulo }}</h1>
+                    <p>Precio <span class="destacado">{{producto.precio}}</span></p>
+                    <p>IVA <span class="destacado">{{producto.iva}}</span></p>
+                </header>
+                <div class="desripcion">
+                    {{ producto.descripcion }}
+                </div>
+                <div>
+                    <p>Ficha tecnica <a href="{{ asset(producto.fichatecnica) }}"> Descargar</a></p>
+                </div>
+            <div>
+        </article>
+    </div>
+{% endblock %}

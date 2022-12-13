@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block cuerpo %}
+{% if is_granted('ROLE_ADMIN') %}
+    <div style="text-align: right; margin-right:10%; margin-top:50px">
+        <a class="btn_naranja" href="{{ path("productosaltaproducto") }}">Nuevo</a>
+    </div>
+{% endif %}
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Precio
+                </th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>
+                        Acciones
+                    </th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+                <tr>
+                    <td>
+                        {{producto.id}}
+                    </td>
+                    <td>
+                        {{producto.titulo}}
+                    </td>
+                    <td>
+                        {{producto.precio}}
+                    </td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <td>
+                            <a href="{{ path("productoseditarproducto",{"id":producto.id}) }}">Editar</a>
+                            <a href="{{ path("productosborrarproductoid",{"id":producto.id}) }}">Borrar</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

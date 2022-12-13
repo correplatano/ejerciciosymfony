@@ -1,0 +1,68 @@
+body{font-family: 'Roboto', sans-serif; font-size:10px;}
+
+/*Seccion para estilos comunes*/
+.centrado{max-width: 1200px; margin:0 auto;}
+.btn_naranja, form div button, #login button {color:white; background-color: #ff7f00; border-radius:10px; padding: 10px 20px;  border: none;}
+.btn_naranja:hover, form div button:hover{cursor:pointer;}
+.txt{padding: 10px 20px;}
+.cmb, form select{padding: 10px 20px;background-color: #f4f4f4;}
+.centrado_flex {display: flex;justify-content: center;}
+.destacado {color:#ff7f00; font-weight: bold; font-size: 1.2em;;}
+
+.tabla{min-width: 80%; font-size:1.3em; margin: 45px auto;}
+.tabla th, .tabla td{padding: 15px; text-align: center;}
+.tabla thead {background-color: #da0f00; color:white; font-weight: bold;}
+.tabla tbody tr:nth-child(2n){background-color: #fff7f7;}
+.tabla tbody tr:nth-child(2n + 1){background-color: #ffebd8;}
+.tabla td:nth-child(2){text-align: left;}
+
+/* Bloque para los formularios */
+form div label, #productos div input, #login label, #login input{display: inline-block; width: 100%;}
+form div input, #login input{padding: 10px 20px; border-radius: 5px;}
+form div label, #login label{line-height: 2em; font-size: 1.5em; color: #ff7f00 ;}
+form > div:last-of-type{margin-top: 25px;text-align: center;}
+form > div:last-of-type button, #login button{width: 80%;}
+.help-text{font-size: 1.2em; font-style: italic; margin: 10px 0;}
+#login button{margin-top:25px;}
+#login h1{font-size: 2em; color:#da0f00; margin-bottom: 20px; margin-top: 15px;}
+
+
+/*Bloque para la vista individual del producto*/
+#producto{margin:45px 0; display: flex; width: 85%; font-size:1.5em;}
+#producto > div{display: inline-block; width: 45%; min-width: 350px; padding: 15px;}
+#producto > div > header > h1{font-size: 2em; padding: 15px 0; color: #da0f00 ;}
+#producto p{line-height: 2em;}
+#producto .desripcion{margin: 15px 0; font-style: italic; text-align: justify;}
+
+/*Otra opcion es usaar selectores*/
+body > header {font-size:1.3em; }
+body > header i{font-size:1.3em;}
+body > header a, body > header, body > header a div{color: #676767;}
+body > header > div:nth-child(1){background-color: #f2f2f2;}
+body > header > div:nth-child(2){background-color:#da0f00}
+body > header > div:nth-child(3){background-color:white}
+body > header nav > ul, body > header nav, body > header  .centrado > div, 
+body > header > div:nth-child(2) #logo,body > header > div:nth-child(2) form {display: inline-block;}
+body > header nav > ul > li{display: inline-block; line-height: 3em;}
+body > header nav:nth-child(1) > ul > li{text-transform: uppercase;}
+body > header nav:nth-child(3), body > header > div:nth-child(3) nav:nth-child(2){float:right;}
+body > header nav:nth-child(3) > ul >li, body > header nav:nth-child(1) > ul > li{padding-right: 10px;}
+body > header .centrado > div{margin-left: 15px;}
+body > header > div:nth-child(3) nav:nth-child(2) i{font-size: 1.8em; color:#cccccc;}
+body > header > div:nth-child(2) #logo img {width: 200px;}
+body > header > div:nth-child(2) > div{display:flex; align-items: center;}
+body > header > div:nth-child(2) > div form{width: 50%; min-width: 200px; text-align: center;}
+body > header > div:nth-child(2) > div form .btn_naranja{border-top-left-radius: 0px; margin-left: -3px;border-bottom-left-radius: 0px; min-height: 39px;;}
+body > header > div:nth-child(2) > div form .txt{width: 45%; min-width: 200px;margin-left: -4px;}
+body > header > div:nth-child(2) > div form .cmb{height: 40px; border-bottom-left-radius: 10px; border-top-left-radius: 10px;}
+body > header > div:nth-child(2) > div > img{max-height: 55px;}
+body > header > div:nth-child(2) > div > div {color:white; min-width: 150px;height: 40px;display: flex;}
+body > header > div:nth-child(2) > div > div div{display:inline-block; height: 40px;}
+body > header > div:nth-child(2) > div > div div:first-child{position:relative;width: 35%;}
+body > header > div:nth-child(2) > div > div div:first-child i{cursor:pointer;font-size: 2.5em; 
+    position:absolute; bottom:0}
+body > header > div:nth-child(2) > div > div div:first-child div{position:absolute; 
+    background-color: black; top:0; right: 10px; width: 15px; height: 15px ; 
+    padding:5px; border-radius:50%; text-align: center;line-height: 15px;;}
+body > header > div:nth-child(2) > div > div div:last-child{width: 64%;}
+body > header > div:nth-child(2) > div > div div:last-child p:first-of-type{line-height: 27px;}
